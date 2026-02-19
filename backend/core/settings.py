@@ -33,6 +33,12 @@ DEBUG = os.environ.get('DEBUG', 'True').lower() in ('true', '1', 'yes')
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
+# CSRF trusted origins for Django admin in production
+CSRF_TRUSTED_ORIGINS = [
+    origin.strip() for origin in
+    os.environ.get('CSRF_TRUSTED_ORIGINS', 'http://localhost,http://127.0.0.1').split(',')
+]
+
 
 # Application definition
 
