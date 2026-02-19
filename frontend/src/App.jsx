@@ -184,14 +184,6 @@ const Navigation = () => {
         <div className="flex items-center gap-4">
           {isAuthenticated ? (
             <>
-              <span className="text-gray-300 text-sm">
-                {user?.username}
-                {isAdmin && (
-                  <span className="ml-2 px-2 py-0.5 bg-teal-500/20 text-teal-200 text-xs rounded-full border border-teal-400/30">
-                    Admin
-                  </span>
-                )}
-              </span>
               <Link
                 to="/change-password"
                 className="px-3 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-sm"
@@ -208,12 +200,18 @@ const Navigation = () => {
                   👥
                 </Link>
               )}
-              <button
-                onClick={handleLogout}
-                className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-sm font-medium"
-              >
-                Logout
-              </button>
+              <div className="flex flex-col items-center">
+                <button
+                  onClick={handleLogout}
+                  className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-sm font-medium"
+                >
+                  Logout
+                </button>
+                <span className="text-gray-400 text-xs mt-1">
+                  {user?.username}
+                  {isAdmin && " (Admin)"}
+                </span>
+              </div>
             </>
           ) : (
             <Link
