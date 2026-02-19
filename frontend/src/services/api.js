@@ -1,9 +1,23 @@
 import axios from "axios";
 
+// Determine API URL: env var > auto-detect Railway > localhost fallback
+const getApiUrl = () => {
+  if (import.meta.env.VITE_API_URL) return import.meta.env.VITE_API_URL;
+  if (
+    typeof window !== "undefined" &&
+    window.location.hostname.includes("railway.app")
+  ) {
+    return "https://dcon-backend-production.up.railway.app/api";
+  }
+  return "http://127.0.0.1:8000/api";
+};
+
+const API_URL = getApiUrl();
+
 // Create a configured instance of Axios
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api",
-  timeout: 10000, // Fail if request takes longer than 10 seconds
+  baseURL: API_URL,
+  timeout: 10000,
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
@@ -40,12 +54,9 @@ api.interceptors.response.use(
           throw new Error("No refresh token");
         }
 
-        const response = await axios.post(
-          `${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api"}/auth/refresh/`,
-          {
-            refresh: refreshToken,
-          },
-        );
+        const response = await axios.post(`${API_URL}/auth/refresh/`, {
+          refresh: refreshToken,
+        });
 
         const { access } = response.data;
         localStorage.setItem("accessToken", access);
