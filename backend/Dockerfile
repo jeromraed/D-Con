@@ -34,5 +34,9 @@ USER appuser
 # Expose port
 EXPOSE 8000
 
-# Run migrations then start gunicorn (uses $PORT from Railway, fallback to 8000)
-CMD ["sh", "-c", "python manage.py migrate && gunicorn core.wsgi:application --bind 0.0.0.0:${PORT:-8000}"]
+# Run migrations, seed data, create admin, then start gunicorn
+CMD ["sh", "-c", "\
+  python manage.py migrate && \
+  python manage.py seed_schedule --clear && \
+  python -c \"import django; django.setup(); from django.contrib.auth.models import User; User.objects.filter(username='admin').exists() or User.objects.create_superuser('admin', 'admin@dcon.org', 'admin123'); print('Admin user ready')\" && \
+  gunicorn core.wsgi:application --bind 0.0.0.0:${PORT:-8000}"]
