@@ -1,0 +1,45 @@
+# D-Con Docker Compose Configuration
+# Run with: docker compose up --build
+
+services:
+  # Django Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount source code for hot-reload during development
+      - ./backend:/app
+      # Persist SQLite database (mount directory, not file)
+      - sqlite_data:/app/data
+    environment:
+      - DEBUG=True
+      - DJANGO_SETTINGS_MODULE=core.settings
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/leaderboard/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # React Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      # Mount source code for hot-reload during development
+      - ./frontend:/app
+      # Prevent node_modules overwrite
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000/api
+    depends_on:
+      - backend
+
+volumes:
+  sqlite_data:
