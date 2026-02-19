@@ -184,29 +184,31 @@ const Navigation = () => {
         <div className="flex items-center gap-4">
           {isAuthenticated ? (
             <>
-              <Link
-                to="/change-password"
-                className="px-3 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-sm"
-                title="Change Password"
-              >
-                🔑
-              </Link>
-              {isAdmin && (
-                <Link
-                  to="/admin/users"
-                  className="px-3 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-sm"
-                  title="Manage Users"
-                >
-                  👥
-                </Link>
-              )}
               <div className="flex flex-col items-center">
-                <button
-                  onClick={handleLogout}
-                  className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-sm font-medium"
-                >
-                  Logout
-                </button>
+                <div className="flex items-center gap-2">
+                  <Link
+                    to="/change-password"
+                    className="px-3 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-sm"
+                    title="Change Password"
+                  >
+                    🔑
+                  </Link>
+                  {isAdmin && (
+                    <Link
+                      to="/admin/users"
+                      className="px-3 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-sm"
+                      title="Manage Users"
+                    >
+                      👥
+                    </Link>
+                  )}
+                  <button
+                    onClick={handleLogout}
+                    className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-sm font-medium"
+                  >
+                    Logout
+                  </button>
+                </div>
                 <span className="text-gray-400 text-xs mt-1">
                   {user?.username}
                   {isAdmin && " (Admin)"}
