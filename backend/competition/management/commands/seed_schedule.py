@@ -10,148 +10,112 @@ from zoneinfo import ZoneInfo
 
 # Schedule data parsed from the CSV
 SCHEDULE_DATA = [
-    # === DAY 1 ===
+    # === Pre Conference Events (أنشطة ما قبل المؤتمر) ===
     {
-        "day": 1, "title": "Welcome Activity",
-        "start": "12:00", "end": "12:50",
-        "location": "", "sub_events": []
-    },
-    {
-        "day": 1, "title": "كلمة افتتاحية",
-        "start": "13:00", "end": "13:20",
-        "location": "", "sub_events": []
-    },
-    {
-        "day": 1, "title": "Talks",
-        "start": "13:30", "end": "14:00",
-        "location": "", "sub_events": [
-            {"title": "Reading Marathon", "location": "Uri"},
-            {"title": "Programming", "location": "Sporting"},
-            {"title": "Arts", "location": "Smouha"},
-            {"title": "Space Management", "location": "Uri"},
-            {"title": "UCMAS", "location": "KDC"},
-        ]
-    },
-    {
-        "day": 1, "title": "Workshops",
-        "start": "14:10", "end": "15:40",
-        "location": "KDC", "sub_events": [
-            {"title": "Lab", "location": "KDC"},
-        ]
-    },
-    {
-        "day": 1, "title": "الغذاء",
-        "start": "15:50", "end": "16:50",
-        "location": "", "sub_events": []
-    },
-    {
-        "day": 1, "title": "صلاة الغروب",
-        "start": "17:00", "end": "17:20",
-        "location": "", "sub_events": []
-    },
-    {
-        "day": 1, "title": "Games",
-        "start": "17:30", "end": "18:20",
-        "location": "", "sub_events": []
-    },
-    {
-        "day": 1, "title": "Keynote Speaker",
-        "start": "18:30", "end": "19:10",
-        "location": "", "sub_events": []
-    },
-    {
-        "day": 1, "title": "Pika Kuka",
-        "start": "19:10", "end": "19:30",
-        "location": "", "sub_events": []
-    },
-    {
-        "day": 1, "title": "Talks",
-        "start": "19:40", "end": "20:10",
-        "location": "", "sub_events": [
-            {"title": "Science Carnival", "location": "KDC"},
-            {"title": "Internal, National & International Competitions", "location": "KDC"},
-            {"title": "وسائل الايضاح", "location": "Uri"},
-            {"title": "Summer School", "location": "God's Masterpiece"},
-            {"title": "Career Consultation", "location": "Eime"},
-        ]
-    },
-    {
-        "day": 1, "title": "Talks",
-        "start": "20:20", "end": "20:50",
-        "location": "", "sub_events": [
-            {"title": "Astronomy Camp", "location": "KDC"},
-            {"title": "Technology", "location": "Eime"},
-            {"title": "Small Business", "location": "Pharo"},
-            {"title": "Interviews (servants selection)", "location": "KDC"},
-            {"title": "Photography", "location": "Bokalia"},
-        ]
-    },
-    {
-        "day": 1, "title": "Poster Sessions",
-        "start": "21:00", "end": "23:00",
-        "location": "", "sub_events": []
-    },
-    {
-        "day": 1, "title": "العشاء",
-        "start": "23:10", "end": "00:00",
-        "location": "", "sub_events": []
-    },
-    {
-        "day": 1, "title": "Mini Astronomy Camp",
-        "start": "00:10", "end": "02:00",
-        "location": "", "sub_events": []
-    },
-
-    # === DAY 2 ===
-    {
-        "day": 2, "title": "قداس",
-        "start": "08:00", "end": "10:00",
-        "location": "", "sub_events": []
-    },
-    {
-        "day": 2, "title": "الفطار",
+        "day": 1, "title": "Welcome Attendees",
         "start": "10:00", "end": "10:50",
         "location": "", "sub_events": []
     },
     {
-        "day": 2, "title": "Workshops",
+        "day": 1, "title": "Workshops I",
         "start": "11:00", "end": "12:30",
-        "location": "KDC", "sub_events": [
-            {"title": "Differential Gears", "location": "KDC"},
+        "location": "", "sub_events": [
+            {"title": "طباعة على الحجر - Safina", "location": "H"},
+            {"title": "صلصال - Safina", "location": "H"},
+            {"title": "MechaScope - KDC", "location": "C1"},
+            {"title": "Microscope - KDC", "location": "C2"},
+            {"title": "Marionette - Uri", "location": "C3"},
         ]
     },
+
+    # === Conference (المؤتمر) ===
     {
-        "day": 2, "title": "Games",
-        "start": "12:40", "end": "13:30",
+        "day": 1, "title": "Welcome Attendees (Part II)",
+        "start": "12:40", "end": "13:00",
         "location": "", "sub_events": []
     },
     {
-        "day": 2, "title": "Workshops",
-        "start": "13:40", "end": "15:10",
-        "location": "KDC", "sub_events": [
-            {"title": "Microscope", "location": "KDC"},
-        ]
-    },
-    {
-        "day": 2, "title": "الغذاء",
-        "start": "15:20", "end": "16:10",
+        "day": 1, "title": "Main Welcome Message",
+        "start": "13:10", "end": "13:30",
         "location": "", "sub_events": []
     },
     {
-        "day": 2, "title": "صلاة الغروب",
-        "start": "16:10", "end": "16:30",
-        "location": "", "sub_events": []
-    },
-    {
-        "day": 2, "title": "Workshops",
-        "start": "16:40", "end": "18:00",
-        "location": "KDC", "sub_events": [
-            {"title": "Sensors & Actuators", "location": "KDC"},
+        "day": 1, "title": "Talks A",
+        "start": "13:40", "end": "14:10",
+        "location": "", "sub_events": [
+            {"title": "تطوير التربية الكنسية - Safina", "location": "H"},
+            {"title": "Space Management - Uri", "location": "C1"},
+            {"title": "Robotics Competitions - KDC", "location": "C2"},
+            {"title": "Astronomy Camp - KDC", "location": "C3"},
+            {"title": "UCMAS - KDC", "location": "C4"},
         ]
     },
     {
-        "day": 2, "title": "Closure",
-        "start": "18:10", "end": "19:00",
+        "day": 1, "title": "Workshops II",
+        "start": "14:20", "end": "15:50",
+        "location": "", "sub_events": [
+            {"title": "خرز - Safina", "location": "H"},
+            {"title": "طباعة على الخشب - Safina", "location": "H"},
+            {"title": "Sensors & Actuators - KDC", "location": "C1"},
+            {"title": "Lab - KDC", "location": "C2"},
+            {"title": "Leather - Uri", "location": "C3"},
+        ]
+    },
+    {
+        "day": 1, "title": "Lunch",
+        "start": "16:00", "end": "16:40",
+        "location": "", "sub_events": []
+    },
+    {
+        "day": 1, "title": "Prayer",
+        "start": "16:50", "end": "17:10",
+        "location": "", "sub_events": []
+    },
+    {
+        "day": 1, "title": "Pika Kuka",
+        "start": "17:10", "end": "17:40",
+        "location": "", "sub_events": []
+    },
+    {
+        "day": 1, "title": "Keynote Speaker",
+        "start": "17:40", "end": "18:00",
+        "location": "", "sub_events": []
+    },
+    {
+        "day": 1, "title": "Talks B",
+        "start": "18:10", "end": "18:40",
+        "location": "", "sub_events": [
+            {"title": "Science Carnival - KDC", "location": "H"},
+            {"title": "التعليم المستمر - Eime", "location": "C1"},
+            {"title": "المعارض الفنية للشباب - Safina", "location": "C2"},
+            {"title": "وسائل الايضاح - Uri", "location": "C3"},
+            {"title": "Summer School - God's Masterpiece", "location": "C4"},
+        ]
+    },
+    {
+        "day": 1, "title": "Talks C",
+        "start": "18:50", "end": "19:20",
+        "location": "", "sub_events": [
+            {"title": "Servants Selection - KDC", "location": "H"},
+            {"title": "Volunteering - Eime", "location": "C1"},
+            {"title": "STEAM Camps - Pokalia", "location": "C2"},
+            {"title": "Reading Marathon - Uri", "location": "C3"},
+            {"title": "Small Business - Faro", "location": "C4"},
+        ]
+    },
+    {
+        "day": 1, "title": "Poster Sessions + Dinner",
+        "start": "19:30", "end": "21:00",
+        "location": "", "sub_events": []
+    },
+    {
+        "day": 1, "title": "Closure",
+        "start": "21:10", "end": "21:30",
+        "location": "", "sub_events": []
+    },
+    {
+        "day": 1, "title": "Astronomy Camp",
+        "start": "21:30", "end": "23:00",
         "location": "", "sub_events": []
     },
 ]
@@ -174,7 +138,7 @@ class Command(BaseCommand):
 
         tz = ZoneInfo('Africa/Cairo')
         # Day 1 = 2026-02-10, Day 2 = 2026-02-11
-        base_dates = {1: datetime(2026, 2, 10), 2: datetime(2026, 2, 11)}
+        base_dates = {1: datetime(2026, 2, 20), 2: datetime(2026, 2, 21)}
 
         created_count = 0
         for item in SCHEDULE_DATA:

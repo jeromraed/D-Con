@@ -1,4 +1,4 @@
-# D-Con 
+# D-Con
 
 D-Con is a web application built for organizing the **D-Con Conference** — a gathering of priests and servants from different churches' STEAM development centers. The app provides schedule management, venue maps, and admin tools for event organizers.
 
@@ -18,7 +18,7 @@ D-Con is a web application built for organizing the **D-Con Conference** — a g
 | Frontend | React + Vite + Tailwind CSS    |
 | Backend  | Django + Django REST Framework |
 | Auth     | JWT (SimpleJWT)                |
-| Database | SQLite                         |
+| Database | PostgreSQL                     |
 | DevOps   | Docker + Docker Compose        |
 
 ## Getting Started
@@ -141,6 +141,11 @@ D-Con/
 | `SECRET_KEY`           | —                       | Django secret key    |
 | `ALLOWED_HOSTS`        | `localhost,127.0.0.1`   | Allowed host headers |
 | `CORS_ALLOWED_ORIGINS` | `http://localhost:5173` | CORS whitelist       |
+| `POSTGRES_DB`          | `dcon`                  | Database name        |
+| `POSTGRES_USER`        | `dcon`                  | Database user        |
+| `POSTGRES_PASSWORD`    | `dcon_secret`           | Database password    |
+| `POSTGRES_HOST`        | `db`                    | Database host        |
+| `POSTGRES_PORT`        | `5432`                  | Database port        |
 
 ### Frontend (`frontend/.env`)
 
