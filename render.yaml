@@ -18,10 +18,7 @@ services:
       - key: ALLOWED_HOSTS
         value: ".onrender.com"
       - key: CORS_ALLOWED_ORIGINS
-        fromService:
-          name: dcon-frontend
-          type: web
-          property: url
+        sync: false # Set this manually to your frontend URL after deploy
       - key: DATABASE_URL
         fromDatabase:
           name: dcon-db
@@ -33,7 +30,6 @@ services:
   - type: web
     name: dcon-frontend
     runtime: static
-    region: frankfurt
     rootDir: frontend
     buildCommand: "npm install && npm run build"
     staticPublishPath: dist
