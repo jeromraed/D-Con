@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create a configured instance of Axios
 const api = axios.create({
-  baseURL: "http://127.0.0.1:8000/api", // The Django URL
+  baseURL: import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api",
   timeout: 10000, // Fail if request takes longer than 10 seconds
   headers: {
     "Content-Type": "application/json",
@@ -41,7 +41,7 @@ api.interceptors.response.use(
         }
 
         const response = await axios.post(
-          "http://127.0.0.1:8000/api/auth/refresh/",
+          `${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api"}/auth/refresh/`,
           {
             refresh: refreshToken,
           },
